@@ -1,25 +1,32 @@
-### Retail Store Analysis
+# Retail Store Analysis
+
 
 ## Project Overview
-This project aims at analyzing sales performance of a retail store in order to uncover key insight such as top-selling products, regional performance and monthly sales trends.
+This project aimed at analyzing sales performance of a retail store in order to uncover key insight such as top-selling products, regional performance and monthly sales trends.
 Also, make data driven recommendation useful for decision making.
 
 ## Data Source
-The primary data used is LITA Capstone Sales dataset used during the training. [SalesData.xlsx](https://github.com/user-attachments/files/17551493/SalesData.xlsx)
+The primary data used is LITA Capstone Sales dataset used during the training. [Sales Data.xlsx](https://github.com/user-attachments/files/17561916/Sales.Data.xlsx)
+
 
 ## Tools Used
  - Miscrosoft Excel
- - SQL Workbench
+ - MYSQL Workbench
 
  - Power BI
 
 ## Microsoft Excel Analysis
-
- -Summarize total sales by product, region and month using Pivot Table.
- -Excel formula to calculate average sales per product and total revenue by region.
-   -Average Sales Per Product = AVERAGEIF(Table1[Product],C2,Table1[Quantity])
-   -Total Revenue Per Region = SUMIF(Table 1[Region], D2, (Table 1[Revenue])
+ - Summarize total sales by product, region and month using Pivot Table.
+ - Excel formula to calculate average sales per product and total revenue by region.
+    1. Average Sales Per Product = AVERAGEIF(Table1[Product],C2,Table1[Quantity])
+    2. Total Revenue Per Region = SUMIF(Table 1[Region], D2, (Table 1[Revenue])
  - Create interesting report
+
+<img width="658" alt="Sales Pivot Table" src="https://github.com/user-attachments/assets/30d9f306-9d82-43c8-b102-f6a27dff6286">
+
+
+<img width="553" alt="Excel Sales Dashboard" src="https://github.com/user-attachments/assets/8611acc0-f98e-4321-820c-e3b8eba1bf13">
+
 
 ## SQL Analysis
  This aspect involves writing queries to answer the following questions:
@@ -50,12 +57,24 @@ The primary data used is LITA Capstone Sales dataset used during the training. [
 
 ## Visualization
 
+<img width="484" alt="Sales Dashboard" src="https://github.com/user-attachments/assets/c37be1a7-817a-4ea6-98ef-f7ed3ff62b6f">
 
 
 
 ## Result/Findings
-
+- The top selling product in year 2023 was shirt while top selling product in 2024 is hat. The store made a lot sales due to children school party.
+- The store made highest sales in "South Region" in 2023 and 2024 while made the lowest sales in "West Region".
+- The store made the highest sales in the month of June as a result of seasonal celebration.
 
 
 
 ## Recommendation
+Based on the result and findings:
+- The store should focus marketing efforts on the sales of hat and shirt.
+- Building and upselling opprtunities in other products.
+- Allocate more resources to the South Region and and develop targeted marketing campaigns for other regions.
+- Implementation of discount offers and continuous monitoring of sales data to respond quickly to emerging trend.
+
+
+## Conclusion
+This report provides a clear overview of sales performance, highlighting area of strength  and opportunities for growth.
