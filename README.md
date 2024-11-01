@@ -1,5 +1,20 @@
-# Retail Store Analysis
+# Project Title: Retail Store Analysis
 
+## Project Outline
+
+[Project Overview](#project-overview)
+
+[Data Source](#data-source)
+
+[Tools Used](#tools-used)
+
+[Visualization](#visualization)
+
+[Result/Findings](#result-findings)
+
+[Recommendation](#recommendation)
+
+[Conclusion](#conclusion)
 
 ## Project Overview
 This project aimed at analyzing sales performance of a retail store in order to uncover key insight such as top-selling products, regional performance and monthly sales trends.
@@ -30,15 +45,41 @@ The primary data used is LITA Capstone Sales dataset used during the training. [
 
 ## SQL Analysis
  This aspect involves writing queries to answer the following questions:
-  - Total Sales for each product category
+  - Total Sales for each product category (Total quantity was used as total sales)
   - Number of sales transaction in each region
   - Highest-Selling product by total sales value
-  - Total Revenue per product
+  - Total Revenue per product (Quantity * Price was used as revenue)
   - Monthly sales total for the current year
   - Top 5 customers by total purchase amount.
   - Percentage of total sales by each region
   - Products with no sales in the last quarter
 
+## SQL Queries (Structured Query Language)
+The following are some of the queries used to answer the questions above:
+
+```SQL
+ SELECT Product, SUM(Quantity) AS TotalSales_ProductCategory FROM Salesdata
+ GROUP BY Product
+ ORDER BY 2 DESC;
+```
+
+```SQL
+ SELECT region, COUNT(quantity) AS No_Sales_Per_Region FROM Salesdata
+ GROUP BY region
+ ORDER BY 2 DESC;
+```
+
+```SQL
+ SELECT Product, SUM(quantity * Price) AS Highest_Selling_Product FROM salesdata
+ GROUP BY Product
+ LIMIT 1;
+```
+
+```SQL
+ SELECT product, SUM(quantity * Price) AS Total_Revenue_Per_Product FROM salesdata
+ GROUP BY product
+ ORDER bY 2 DESC;
+```
 
 ## Power BI Dashboard 
 
