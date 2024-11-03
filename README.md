@@ -57,28 +57,47 @@ The primary data used is LITA Capstone Sales dataset used during the training. [
 ## SQL Queries (Structured Query Language)
 The following are some of the queries used to answer the questions above:
 
+ - Total Sales for each product category
 ```SQL
  SELECT Product, SUM(Quantity) AS TotalSales_ProductCategory FROM Salesdata
  GROUP BY Product
  ORDER BY 2 DESC;
 ```
 
+ - Number of sales transaction in each region
 ```SQL
  SELECT region, COUNT(quantity) AS No_Sales_Per_Region FROM Salesdata
  GROUP BY region
  ORDER BY 2 DESC;
 ```
 
+  - Highest-Selling product by total sales value
 ```SQL
  SELECT Product, SUM(quantity * Price) AS Highest_Selling_Product FROM salesdata
  GROUP BY Product
  LIMIT 1;
 ```
 
+ - Total Revenue per product
 ```SQL
  SELECT product, SUM(quantity * Price) AS Total_Revenue_Per_Product FROM salesdata
  GROUP BY product
  ORDER bY 2 DESC;
+```
+
+ - Monthly sales total for the current year
+```SQL
+ SELECT MONTH(orderdate) AS Month, Sum(quantity) AS Total_Sales FROM salesdata
+ WHERE YEAR(orderdate) = YEAR(CURRENT_DATE)
+ GROUP BY MONTH(orderdate)
+ ORDER BY Month;
+```
+ - Top 5 customers by total purchase amount.
+```SQL
+ SELECT customer_id, sum(Quantity*Price) AS Total_Purchase_Amount FROM salesdata
+ GROUP BY customer_id
+ ORDER BY 2 desc
+ LIMIT 5;
 ```
 
 ## Power BI Dashboard 
