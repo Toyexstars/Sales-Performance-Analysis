@@ -37,10 +37,16 @@ The primary data used is LITA Capstone Sales dataset used during the training. [
     2. Total Revenue Per Region = SUMIF(Table 1[Region], D2, (Table 1[Revenue])
  - Create interesting report
 
+## Pivot Table
+It summarizes the total sales by product, region and month.
 <img width="658" alt="Sales Pivot Table" src="https://github.com/user-attachments/assets/30d9f306-9d82-43c8-b102-f6a27dff6286">
 
 
-<img width="553" alt="Excel Sales Dashboard" src="https://github.com/user-attachments/assets/8611acc0-f98e-4321-820c-e3b8eba1bf13">
+## Excel Report Dashboard
+ <img width="578" alt="Excel Dashboard" src="https://github.com/user-attachments/assets/f3a5881a-23f6-4c49-aac4-e6bf84bcd87d">
+
+
+
 
 
 ## SQL Analysis
@@ -100,6 +106,22 @@ The following are some of the queries used to answer the questions above:
  LIMIT 5;
 ```
 
+- Percentage of total sales by each region
+```SQL
+ SELECT Product, SUM(Quantity) * 100 / (SELECT SUM(Quantity) FROM salesdata) AS Percentage_Sales_Region
+ FROM salesdata
+ GROUP BY Product;
+```
+
+- Products with no sales in the last quarter
+```SQL
+ SELECT Product FROM saledata
+ GROUP BY Product
+ HAVING SUM(CASE
+ WHEN OrderDate Between '2024-06-01' AND '2024-O8-31'
+ THEN 1 ELSE 0 END) = 0;
+```
+
 ## Power BI Dashboard 
 
  - KPI'S Requirement (Key Performance Indicator)
@@ -122,16 +144,15 @@ The following are some of the queries used to answer the questions above:
 
 
 ## Result/Findings
-- The top selling product in year 2023 was shirt while top selling product in 2024 is hat. The store made a lot sales due to children school party.
+- The top selling product based on quantity in year 2023 was shirt while top selling product based on quantity in 2024 is hat. The store made a lot sales due to children school party.
 - The store made highest sales in "South Region" in 2023 and 2024 while made the lowest sales in "West Region".
 - The store made the highest sales in the month of June as a result of seasonal celebration.
-
 
 
 ## Recommendation
 Based on the result and findings:
 - The store should focus marketing efforts on the sales of hat and shirt.
-- Building and upselling opprtunities in other products.
+- Building and upselling opportunities in other products.
 - Allocate more resources to the South Region and and develop targeted marketing campaigns for other regions.
 - Implementation of discount offers and continuous monitoring of sales data to respond quickly to emerging trend.
 
